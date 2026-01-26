@@ -18,7 +18,7 @@ deepallergen/
 │   ├── model.py
 │   └── utils.py
 │
-├── preprocessed_data_t5/
+├── preprocessed_data/
 ├── saved_model/
 ├── output/
 ├── logs/
