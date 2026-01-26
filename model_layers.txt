@@ -1,0 +1,88 @@
+================================================================================
+MODEL LAYER STRUCTURE - Total: 80 layers
+================================================================================
+Index    | Layer Name                                    | Layer Type                    
+--------------------------------------------------------------------------------
+0        | input_1                                       | InputLayer                    
+1        | conv1d                                        | Conv1D                        
+2        | ecb_1__0                                      | SqueezeExcitation1DLayer      
+3        | batch_normalization                           | BatchNormalization            
+4        | conv1d_1                                      | Conv1D                        
+5        | ecb_1__1                                      | SqueezeExcitation1DLayer      
+6        | batch_normalization_1                         | BatchNormalization            
+7        | dropout                                       | Dropout                       
+8        | conv1d_2                                      | Conv1D                        
+9        | conv1d_3                                      | Conv1D                        
+10       | ecb_2__0                                      | SqueezeExcitation1DLayer      
+11       | batch_normalization_2                         | BatchNormalization            
+12       | conv1d_4                                      | Conv1D                        
+13       | ecb_2__1                                      | SqueezeExcitation1DLayer      
+14       | batch_normalization_3                         | BatchNormalization            
+15       | dropout_1                                     | Dropout                       
+16       | conv1d_5                                      | Conv1D                        
+17       | conv1d_6                                      | Conv1D                        
+18       | ecb_3__0                                      | SqueezeExcitation1DLayer      
+19       | batch_normalization_4                         | BatchNormalization            
+20       | conv1d_7                                      | Conv1D                        
+21       | ecb_3__1                                      | SqueezeExcitation1DLayer      
+22       | batch_normalization_5                         | BatchNormalization            
+23       | dropout_2                                     | Dropout                       
+24       | conv1d_8                                      | Conv1D                        
+25       | conv1d_9                                      | Conv1D                        
+26       | ecb_4__0                                      | SqueezeExcitation1DLayer      
+27       | batch_normalization_6                         | BatchNormalization            
+28       | conv1d_10                                     | Conv1D                        
+29       | ecb_4__1                                      | SqueezeExcitation1DLayer      
+30       | batch_normalization_7                         | BatchNormalization            
+31       | dropout_3                                     | Dropout                       
+32       | position_embedding                            | PositionEmbedding             
+33       | tf.__operators__.add                          | TFOpLambda                    
+34       | tf.__operators__.add_1                        | TFOpLambda                    
+35       | tf.__operators__.add_2                        | TFOpLambda                    
+36       | conv1d_transpose                              | Conv1DTranspose               
+37       | concatenate                                   | Concatenate                   
+38       | conv1d_11                                     | Conv1D                        
+39       | dcb_1__0                                      | SqueezeExcitation1DLayer      
+40       | batch_normalization_8                         | BatchNormalization            
+41       | conv1d_12                                     | Conv1D                        
+42       | dcb_1__1                                      | SqueezeExcitation1DLayer      
+43       | batch_normalization_9                         | BatchNormalization            
+44       | conv1d_transpose_1                            | Conv1DTranspose               
+45       | concatenate_1                                 | Concatenate                   
+46       | conv1d_13                                     | Conv1D                        
+47       | dcb_2__0                                      | SqueezeExcitation1DLayer      
+48       | batch_normalization_10                        | BatchNormalization            
+49       | conv1d_14                                     | Conv1D                        
+50       | dcb_2__1                                      | SqueezeExcitation1DLayer      
+51       | batch_normalization_11                        | BatchNormalization            
+52       | conv1d_transpose_2                            | Conv1DTranspose               
+53       | concatenate_2                                 | Concatenate                   
+54       | conv1d_15                                     | Conv1D                        
+55       | dcb_3__0                                      | SqueezeExcitation1DLayer      
+56       | batch_normalization_12                        | BatchNormalization            
+57       | conv1d_16                                     | Conv1D                        
+58       | dcb_3__1                                      | SqueezeExcitation1DLayer      
+59       | batch_normalization_13                        | BatchNormalization            
+60       | conv1d_17                                     | Conv1D                        
+61       | se_0                                          | SqueezeExcitation1DLayer      
+62       | conv1d_18                                     | Conv1D                        
+63       | se_1                                          | SqueezeExcitation1DLayer      
+64       | conv1d_19                                     | Conv1D                        
+65       | se_2                                          | SqueezeExcitation1DLayer      
+66       | flatten                                       | Flatten                       
+67       | dense_34                                      | Dense                         
+68       | tf.nn.leaky_relu                              | TFOpLambda                    
+69       | dropout_4                                     | Dropout                       
+70       | dense_35                                      | Dense                         
+71       | tf.nn.leaky_relu_1                            | TFOpLambda                    
+72       | dropout_5                                     | Dropout                       
+73       | dense_36                                      | Dense                         
+74       | tf.nn.leaky_relu_2                            | TFOpLambda                    
+75       | dropout_6                                     | Dropout                       
+76       | dense_37                                      | Dense                         
+77       | tf.nn.leaky_relu_3                            | TFOpLambda                    
+78       | dropout_7                                     | Dropout                       
+79       | dense_38                                      | Dense                         
+================================================================================
+Total layers: 80
+================================================================================
