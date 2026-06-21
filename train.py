@@ -5,7 +5,8 @@ from utils import *
 from tensorflow import keras
 import tensorflow_addons as tfa
 
-model_arch = "DeepAllergen"
+model_arch      = "DeepAllergen"
+EXPERIMENT_NAME = "baseline_seed123"
 path = ""
 
 # Multi-GPU Strategy
@@ -19,12 +20,14 @@ tf.profiler.experimental.server.start(6000)
 # ======================= PATHS =======================
 # ⚠️ preprocessing çıktı klasörü
 saved_tf_dataset_path = "preprocessed_data/"
-model_path = "saved_model/model/"
-result_path = "output/results/" + model_arch + "/"
+model_path  = f"saved_model/model_model/"
+result_path = f"output/results/{EXPERIMENT_NAME}/"
 # =====================================================
 
 os.makedirs(model_path, exist_ok=True)
 os.makedirs(result_path, exist_ok=True)
+
+print(f"Experiment : {EXPERIMENT_NAME}")
 
 print("\n📂 Dataset'ler yükleniyor...")
 
@@ -132,18 +135,19 @@ reduce_lr = tf.keras.callbacks.ReduceLROnPlateau(
 )
 
 # TensorBoard
-log_dir = path + "logs/fit/" + model_arch + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+log_dir = path + "logs/fit/" + EXPERIMENT_NAME + "_" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_cb = tf.keras.callbacks.TensorBoard(
     log_dir=log_dir,
     histogram_freq=1
 )
 
-# Model Checkpoint (en iyi modeli kaydet)
+# Model Checkpoint (en iyi modeli kaydet — test.py'nin beklediği isimle uyumlu)
 checkpoint_cb = tf.keras.callbacks.ModelCheckpoint(
-    filepath=os.path.join(model_path, model_arch + "_best.h5"),
+    filepath=os.path.join(model_path, f"best_{EXPERIMENT_NAME}.weights.h5"),
     monitor='val_auc',
     mode='max',
     save_best_only=True,
+    save_weights_only=True,
     verbose=1
 )
 
@@ -151,7 +155,7 @@ print("✅ Callbacks hazır\n")
 
 # ======================= TRAINING =======================
 print("=" * 60)
-print("🚀 Eğitim başlıyor...")
+print(f"🚀 Eğitim başlıyor: {EXPERIMENT_NAME}")
 print("=" * 60)
 print(f"📊 Epochs: 85")
 print(f"📦 Batch size: {batch_size}")
@@ -185,13 +189,14 @@ print(f"⏱️  Toplam süre: {training_time / 60:.2f} dakika")
 print("=" * 60 + "\n")
 
 # ======================= SAVE & EVALUATE =======================
-print("💾 Model kaydediliyor...")
-model.save(os.path.join(model_path, model_arch))
-print(f"✅ Model kaydedildi: {os.path.join(model_path, model_arch)}")
+print("💾 Final ağırlıklar kaydediliyor...")
+model.save_weights(os.path.join(model_path, f"{EXPERIMENT_NAME}.weights.h5"))
+print(f"✅ Kaydedildi: {os.path.join(model_path, f'{EXPERIMENT_NAME}.weights.h5')}")
 
 print("\n📊 Final evaluation...")
 result_dic = model.evaluate(val_dataset, batch_size=batch_size, return_dict=True)
 result_dic["training_time"] = training_time
+result_dic["experiment"]    = EXPERIMENT_NAME
 
 # Sonuçları kaydet
 save_result(result_dic, result_path)
