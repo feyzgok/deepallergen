@@ -19,7 +19,7 @@ from sklearn.metrics import (confusion_matrix, accuracy_score, precision_score,
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from model import DeepAllergen
 
-EXPERIMENT_NAME = "edit_here"
+EXPERIMENT_NAME = "baseline_seed123"  # change to your experiment name
 WEIGHTS_PATH    = f"saved_model/model_model/best_{EXPERIMENT_NAME}.weights.h5"
 DATA_PATH       = "preprocessed_data/"
 
