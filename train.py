@@ -3,7 +3,6 @@ import time
 from model import *
 from utils import *
 from tensorflow import keras
-import tensorflow_addons as tfa
 
 model_arch      = "DeepAllergen"
 EXPERIMENT_NAME = "baseline_seed123"
