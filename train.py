@@ -88,7 +88,7 @@ with strategy.scope():
 
     # Loss & Optimizer
     loss_fn = tf.keras.losses.BinaryCrossentropy(label_smoothing=0.05)
-    optimizer = tfa.optimizers.AdamW(
+    optimizer = tf.keras.optimizers.AdamW(
         learning_rate=3e-4,
         weight_decay=1e-4,
         clipnorm=1.0
